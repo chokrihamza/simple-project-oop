@@ -18,8 +18,13 @@
 
   <body>
     <?php
-require 'form.php';
-require 'bootsrapfrom.php';
+      require 'class/autoloader.php';
+      Autoloader::register();
+      //require 'form.php';
+      //require 'bootsrapfrom.php';
+
+     
+
 $form=new Bootsrapfrom($_POST);
 Form::$color = 'blue';
 ?>
