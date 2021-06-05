@@ -1,6 +1,6 @@
  <?php
 
-  class Bootsrapfrom extends Form
+  class Bootsrapfrom extends \tutoriel\HTML\Form
   {
     protected function surround($html)
     {

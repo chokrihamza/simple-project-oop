@@ -7,8 +7,12 @@ class Autoloader
   {
     spl_autoload_register(array(__CLASS__, 'autoloader'));
   }
-  static function autoloader($class_name)
+  static function autoloader($class)
   {
-    require 'class/' . $class_name . '.php';
+    $class = str_replace('tutoriel\\', '', $class);
+    $class = str_replace('\\', '/', $class);
+    print_r($class);
+
+    require 'class/' . $class . '.php';
   }
 }
