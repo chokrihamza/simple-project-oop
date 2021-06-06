@@ -68,6 +68,26 @@ class Student
     // do somthing
   }
 
+  public function __invoke()
+  {
+    echo "<h2 style='color:blue'>Hi $this->name are you okay your id is : " . self::$id . " .</h2>";
+  }
+
+  public function __debugInfo()
+  {
+    return array('student_name' => $this->name);
+  }
+  public static function __set_state(array $array)
+  {
+    var_dump($array);
+    $obj = new Student('', '');
+    $obj->name = $array['name'];
+    $obj->email = $array['email'];
+
+    return $obj;
+  }
+
+
   private static function say_id()
   {
     echo   self::$id;
@@ -127,4 +147,14 @@ echo "<h1>" . serialize($student) . "</h1>";
 
 //echo unserialize($student);
 
-// invoke method
+// invoke method when we invoke object;
+
+$student();
+
+// the __clone method clone->__clone-->return the value;
+// the __debuginfo()  var_dump->__debuginfo()-->return the value;
+
+var_dump($student);
+
+// the __set_state()
+echo var_export($student);
