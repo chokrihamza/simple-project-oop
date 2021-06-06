@@ -1,5 +1,9 @@
 <?php
 
+namespace Tutoriel;
+
+
+
 class Autoloader
 {
 
@@ -9,10 +13,13 @@ class Autoloader
   }
   static function autoloader($class)
   {
-    $class = str_replace('tutoriel\\', '', $class);
+
+    $class = str_replace(__NAMESPACE__ . '\\', '', $class);
+   
     $class = str_replace('\\', '/', $class);
-    print_r($class);
+    
 
     require 'class/' . $class . '.php';
+    
   }
 }

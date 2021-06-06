@@ -1,3 +1,8 @@
+<?php
+   use \Tutoriel\HTML\Bootsrapform;
+   use \Tutoriel\Autoloader;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,23 +23,20 @@
 
   <body>
     <?php
-      require 'class/autoloader.php';
-      Autoloader::register();
-      //require 'form.php';
-      //require 'bootsrapfrom.php';
-
-     
-
-$form=new Bootsrapfrom($_POST);
-Form::$color = 'blue';
-?>
+    
+  require 'class/autoloader.php';
+   Autoloader::register();
+   $form = new Bootsrapform($_POST);
+  
+  ?>
     <form action="" method="post">
       <?php
 
-echo $form->input('username');
-echo $form->input('password');
-echo $form->submit();
-?>
+    echo $form->input('username');
+    echo $form->input('password');
+    echo $form->submit();
+    print_r( $form->date());
+    ?>
     </form>
   </body>
 

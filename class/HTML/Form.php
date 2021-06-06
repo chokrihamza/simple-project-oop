@@ -1,8 +1,8 @@
 <?php
 
-namespace tutoriel\HTML;
+namespace Tutoriel\HTML;
 
-
+use DateTime;
 
 class Form
 {
@@ -34,5 +34,10 @@ class Form
   public function submit()
   {
     return $this->surround("<button style='background-color:{$this->col()}' type='submit'>Send</button>");
+  }
+
+  public function date()
+  {
+    return new \DateTime();
   }
 }
