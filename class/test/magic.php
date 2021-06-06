@@ -58,6 +58,15 @@ class Student
     $this->unset($name);
   }
 
+  public function __sleep()
+  {
+    return array('name', 'email');
+  }
+
+  public function __wakeup()
+  {
+    // do somthing
+  }
 
   private static function say_id()
   {
@@ -106,8 +115,16 @@ echo Student::say_id();
 echo isset($student->phone);
 
 // the unset() function
-unset($student->name);
+//unset($student->name);
 
 echo $student->name;
 
 // __sleep()  and __wakeup()
+
+echo "<h1>" . serialize($student) . "</h1>";
+
+//echo unserialize($student);
+
+//echo unserialize($student);
+
+// invoke method
